@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 import {
   VStack,
   HStack,
@@ -20,9 +21,7 @@ import { Button } from '../components/Button'
 import { color } from 'native-base/lib/typescript/theme/styled-system'
 
 export const Home = () => {
-  const [statusSelected, setStatusSelected] = useState<'open' | 'closed'>(
-    'open'
-  )
+  const [statusSelected, setStatusSelected] = useState<'open' | 'closed'>('open')
   const [orders, setOrders] = useState<OrderProps[]>([
     /*{
       id: '123',
@@ -34,7 +33,13 @@ export const Home = () => {
     },*/
   ])
 
+  const navigation = useNavigation()
   const { colors } = useTheme()
+
+  function handleNewOrder(){
+    navigation.navigate('new')
+
+  }
 
   return (
     <VStack flex={1} pb={6} bg="gray.700">
@@ -96,7 +101,7 @@ export const Home = () => {
           )}
 
         />
-        <Button title="Nova Solicitação" />
+        <Button title="Nova Solicitação" onPress={handleNewOrder} />
       </VStack>
     </VStack>
   )
