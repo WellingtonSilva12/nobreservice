@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "149516496017",
+    "project_id": "nobre-order-service",
+    "storage_bucket": "nobre-order-service.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149516496017:android:36f6d1cdfe89e5fd842330",
+        "android_client_info": {
+          "package_name": "com.nobreservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149516496017-sde6r0ac6n0p335g77vqjjp5oboa8unl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdwCFxnM0_tj0Oo3OA8HE4Gb7y8bKhJr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149516496017-sde6r0ac6n0p335g77vqjjp5oboa8unl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

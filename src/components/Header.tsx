@@ -13,8 +13,6 @@ export function Header({title, ...rest}: Props) {
 
   function handleGoBack(){
     navigation.goBack()
-
-
   }
 
 

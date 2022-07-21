@@ -6,9 +6,22 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "packagerOpts":{
-      "config":"metro.config.js",
-      "sourceExts":["js", "jsx","ts","tsx","svg"]
+    "plugins": [
+      "@react-native-firebase/app"
+    ],
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": [
+        "js",
+        "jsx",
+        "ts",
+        "tsx",
+        "svg"
+      ]
+    },
+    "android": {
+      "package": "com.nobreservice",
+      "googleServicesFile": "./google-services.json"
     }
   }
 }
