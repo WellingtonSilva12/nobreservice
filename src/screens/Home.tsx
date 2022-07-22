@@ -70,10 +70,11 @@ export const Home = () => {
       .where('status', '==', statusSelected)
       .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc=>{
-          const { title, description, status, create_at} = doc.data()
+          const { client, title, description, status, create_at} = doc.data()
 
           return {
             id: doc.id,
+            client,
             title,
             description,
             status,
@@ -151,7 +152,7 @@ export const Home = () => {
           />
         }
 
-        <Button title="Nova Solicitação" onPress={handleNewOrder} />
+        <Button title="Nova Ordem" onPress={handleNewOrder} />
       </VStack>
     </VStack>
   )

@@ -39,15 +39,12 @@ export const Signin = () =>  {
       }
       return Alert.alert("Entrar", "Não foi possivel acessar.")
     })
-
-
-    
   }
 
   return (
     <VStack flex={1} alignItems="center" bg="gray.600" px={8} pt={24}>
       <Logo/>
-      <Heading color="gray.100" fontSize="xl" mt={20} mb={6}>
+      <Heading color="gray.100" fontSize="xl" mt={12} mb={6}>
         Acesse Sua Conta
       </Heading>
       <Input

@@ -12,18 +12,20 @@ import { Button } from '../components/Button';
 export function Register() {
   const [isLoading, setIsLoading] = useState(false)
   const [title, setTitle] = useState('')
+  const [client, setClient] = useState('')
   const [description, setDescription] = useState('')
 
   const navigation = useNavigation()
 
   function handleNewOrderRegister(){
-    if (!title || !description){
+    if (!title || !client){
     Alert.alert("Registrar", "Preencha todos os campos.")
     }
     setIsLoading(true)
 
     firestore()
     .collection('orders').add({
+      client,
       title,
       description,
       status: 'open',
@@ -43,23 +45,27 @@ export function Register() {
 
   return (
     <VStack flex={1} p={6} bg="gray.600">
-      < Header title='Nova Solicitação'/>
+      < Header title='Ordem de Serviço'/>
 
       <Input 
-        placeholder='Ordem de Serviço'
-        mt={4}
+        placeholder='Nome do Cliente'
+        onChangeText={setClient}
+        />
+      <Input 
+        placeholder='Nome do Serviço'
         onChangeText={setTitle}
+        mt={3}
       />
 
       <Input
         placeholder='Descrição do serviço'
         flex={1}
-        mt={5}
+        mt={3}
         multiline
         textAlignVertical="top"
         onChangeText={setDescription}
       />
-      <Button title='Cadastrar OS' mt={5} isLoading={isLoading}
+      <Button title='Cadastrar OS' mt={2} isLoading={isLoading}
       onPress={handleNewOrderRegister}/>
 
     </VStack>

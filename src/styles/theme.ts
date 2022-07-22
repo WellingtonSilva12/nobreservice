@@ -6,12 +6,17 @@ export const THEME = extendTheme({
       700: '#996DFF'
     },
     secondary: {
-      700: '#FBA94C'
+      700: '#BB6BD9'
     },
     green: {
       700: '#00875F',
       500: '#00B37E',
       300: '#04D361',
+    },
+    purple: {
+      700: '#7E46FF',
+      500: '#AF8CFF',
+      300: '#C5ACFF',
     },
     gray: {
       700: '#121214',
