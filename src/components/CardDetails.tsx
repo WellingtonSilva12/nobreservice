@@ -3,6 +3,7 @@ import {ReactNode} from 'react'
 import {IconProps} from 'phosphor-react-native'
 
 type Props =  {
+  client: string
   title: string
   description?: string
   footer?: string
@@ -12,6 +13,7 @@ type Props =  {
 
 
 export function CardDetails({
+  client,
   title, 
   description, 
   footer = null, 
@@ -22,8 +24,8 @@ export function CardDetails({
   const { colors  } = useTheme()
   
   return (
-    <VStack bg='gray.600' p={5} mt={5} rounded="sm">
-      <HStack alignItems="center" mb={4}>
+    <VStack bg='gray.600' p={4} mt={3} rounded="sm">
+      <HStack alignItems="center" mb={2}>
         <Icon color={colors.primary[700]} />
         <Text ml={2} color="gray.300" fontSize="sm" textTransform="uppercase">
           {title}
@@ -31,7 +33,7 @@ export function CardDetails({
       </HStack>
       
       {
-        !!description && <Text color= "gray.100" fontSize = "md"> {description} </Text>
+        !!description && <Text color= "gray.100" fontSize = "md" mb={2}> {description} </Text>
       }
       
         {children}
@@ -39,7 +41,7 @@ export function CardDetails({
       {
         !!footer && 
         <Box borderTopWidth={1} borderTopColor="gray.400">
-          <Text mt={3} color="gray.300" fontSize="sm">
+          <Text mt={1} color="gray.300" fontSize="sm">
             {footer}
           </Text>
         </Box>

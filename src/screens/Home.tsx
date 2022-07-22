@@ -152,7 +152,7 @@ export const Home = () => {
           />
         }
 
-        <Button title="Nova Ordem" onPress={handleNewOrder} />
+        <Button title="Nova Ordem" onPress={handleNewOrder} mt={1} />
       </VStack>
     </VStack>
   )

@@ -4,7 +4,7 @@ import { VStack, Text, HStack, useTheme, ScrollView, Box } from 'native-base';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore'
 import { OrderFirestoreDTO } from '../DTO/OrderFirestoreDTO';
-import { CircleWavyCheck, Hourglass, DesktopTower, ClipboardText } from 'phosphor-react-native';
+import { CheckCircle, ArrowClockwise, DesktopTower, ClipboardText } from 'phosphor-react-native';
 
 import { dateFormat } from '../utils/firestoreDateFormat';
 
@@ -20,6 +20,7 @@ type RouteParams = {
 }
 
 type OrderDetails = OrderProps & {
+  client: string;
   description: string
   solution: string
   closed: string
@@ -61,12 +62,13 @@ export function Details() {
     firestore().collection<OrderFirestoreDTO>('orders')
     .doc(orderId)
       .get().then((doc) => {
-        const {title, description, status, create_at, closed_at, solution } = doc.data()
+        const {client, title, description, status, create_at, closed_at, solution } = doc.data()
 
         const closed = closed_at ? dateFormat(closed_at) : null
         
         setOrder({
           id: orderId,
+          client,
           title,
           description,
           status,
@@ -86,13 +88,13 @@ export function Details() {
   return (
     <VStack flex={1} bg="gray.700">
       <Header title="Ordem de Serviço"/>
-      <HStack bg="gray.600" justifyContent='center' p={4}>
+      <HStack bg="gray.600" justifyContent='center' p={2} alignItems="center">
         {
           order.status === 'closed' 
-          ? <CircleWavyCheck size={22} color={colors.green[300]} />
-          : <Hourglass size={22} color={colors.secondary[700]} />
+          ? <CheckCircle size={22} color={colors.green[300]} />
+          : <ArrowClockwise size={20} color={colors.secondary[700]} />
         }
-          <Text fontSize="sm"
+          <Text fontSize="md"
             color={order.status === 'closed' ? colors.green[300] : colors.secondary[700]}
             ml={2}
             textTransform="uppercase"
@@ -100,24 +102,27 @@ export function Details() {
             {order.status === 'closed'? 'finalizado' : 'em andamento'}
           </Text>
         </HStack>
-        <ScrollView mx={5}
+        <ScrollView mx={4}
         showsVerticalScrollIndicator={false}>
           <CardDetails
+            client={order.client}
             title='Serviço'
             description={order.title}
             icon={DesktopTower}
           />
 
           <CardDetails
+            client={order.client}
             title="descrição do serviço"
             description={order.description}
             icon={ClipboardText}
             footer={`Iniciado em ${order.when}`}
           />
 
-          <CardDetails 
+          <CardDetails
+          client={order.client}
           title='Finalização'
-          icon={CircleWavyCheck}
+          icon={CheckCircle}
           footer={order.closed && `Finalizado em ${order.closed}`}>
             <Input
               placeholder='Observações sobre o serviço'
@@ -134,7 +139,7 @@ export function Details() {
           order.status === 'open' && 
           <Button
             title='Encerrar Serviço'
-            m={5}
+            m={2}
             onPress={handleOrderClose}
           />
         }
