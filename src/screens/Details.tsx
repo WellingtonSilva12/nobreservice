@@ -130,9 +130,12 @@ export function Details() {
               textAlignVertical='top'
               multiline
               h={24}
+              borderWidth={1}
+              borderColor="gray.400"
+              bg="gray.600"
               value={order.solution}
-              
             />
+
           </CardDetails>
         </ScrollView>
         {
