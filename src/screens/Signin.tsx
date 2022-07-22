@@ -44,15 +44,16 @@ export const Signin = () =>  {
   return (
     <VStack flex={1} alignItems="center" bg="gray.600" px={8} pt={24}>
       <Logo/>
-      <Heading color="gray.100" fontSize="xl" mt={12} mb={6}>
+      <Heading color="gray.100" fontSize="xl" mt={12} mb={6} textTransform="uppercase">
         Acesse Sua Conta
       </Heading>
       <Input
         mb={2}
         placeholder="E-mail"
         InputLeftElement={
-          <Icon as={<Envelope color={colors.gray[300]} />} ml={4} />}
+          <Icon as={<Envelope color={colors.gray[300]}  />} ml={4} />}
         onChangeText={setEmail}
+
       />
 
       <Input

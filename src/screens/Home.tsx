@@ -15,7 +15,7 @@ import {
   Center
 } from 'native-base'
 import { SignOut } from 'phosphor-react-native'
-import {ChatTeardropText} from 'phosphor-react-native'
+import {ChatDots} from 'phosphor-react-native'
 
 
 import { dateFormat } from '../utils/firestoreDateFormat'
@@ -98,11 +98,12 @@ export const Home = () => {
         bg="gray.600"
         pt={12}
         pb={5}
+        pl={8}
         px={6}
       >
         <Logo />
 
-        <IconButton icon={<SignOut size={26} color={colors.gray[300]} />} onPress={handleLogout} />
+        <IconButton icon={<SignOut size={26} color={colors.gray[300]} />} onPress={handleLogout} px={4} />
       </HStack>
 
       <VStack flex={1} px={6}>
@@ -113,9 +114,9 @@ export const Home = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Heading color="gray.100">Ordem de Serviço</Heading>
+          <Heading color="gray.100" textTransform="uppercase" fontSize="lg">Ordem de Serviço</Heading>
 
-          <Text color="gray.200">{orders.length}</Text>
+          <Text color="gray.200" fontSize="md">{orders.length}</Text>
         </HStack>
 
         <HStack space={3} mb={8}>
@@ -144,7 +145,7 @@ export const Home = () => {
           contentContainerStyle={{paddingBottom: 100}}
           ListEmptyComponent={() => (
             <Center>
-              <ChatTeardropText  color={colors.gray[300]} size={40}  />
+              <ChatDots  color={colors.gray[300]} size={40}  />
               <Text color="gray.300" fontSize="xl" mt={2} textAlign="center">Você ainda não possui {'\n'}
               serviços {statusSelected === 'open' ? 'em andamento' : 'finalizados'}</Text>
             </Center>

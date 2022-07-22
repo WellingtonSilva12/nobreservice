@@ -40,11 +40,6 @@ export function Order({ data, ...rest }: Props) {
           <HStack alignItems="center">
             <Text fontWeight="600" color="gray.200" fontSize="md" > {data.title}</Text>
           </HStack>
-          {/* <HStack>
-            <Text color="white" fontWeight="bold" fontSize="md">
-              Descrição: <Text fontWeight="normal" color="gray.200" fontSize="md" > {data.description} </Text>
-            </Text>
-          </HStack> */}
           <HStack alignItems="center">
             <Clock size={15} color={colors.gray[300]} />
             <Text color="gray.200" fontSize="xs" ml={1}>

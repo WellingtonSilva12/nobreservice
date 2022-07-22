@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { Heading, HStack, IconButton, StyledProps, useTheme } from 'native-base';
-import { CaretLeft } from 'phosphor-react-native';
+import { ArrowLeft, CaretLeft } from 'phosphor-react-native';
 import React from 'react';
 
 type Props = StyledProps & {
@@ -25,15 +25,17 @@ export function Header({title, ...rest}: Props) {
       bg="gray.600"
       pb={6}
       pt={12}
+      px={2}
       {...rest}
 
     >
       <IconButton
-        icon={<CaretLeft color={colors.gray[200]} size={24} />}
+        icon={<ArrowLeft color={colors.gray[200]} size={24} />}
         onPress={handleGoBack}
+        px={6}
 
       />
-      <Heading color="gray.100" fontSize="lg" ml={-6} textAlign="center" flex={1}>
+      <Heading color="gray.100" fontSize="md" ml={-20} textAlign="center" flex={1} textTransform="uppercase">
         {title}
       </Heading>
 
